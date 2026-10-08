@@ -1,0 +1,336 @@
+SQL> ---------joins
+SQL> select*from customers;
+
+CUSTOMER_ID CUSTOMER_NAME                                      PHONE           EMAIL                                              ADDRESS
+----------- -------------------------------------------------- --------------- ---------------------
+          1 Sonali Shendge                                     9876543210      sonali@gmail.com                                   Pune
+          2 Rahul Patil                                        9876543211      rahul@gmail.com                                    Mumbai
+          3 Priya Sharma                                       9876543212      priya@gmail.com                                    Pune
+          4 Amit Kulkarni                                      9876543213      amit@gmail.com                                     Nashik
+          5 Sneha Joshi                                        9876543214      sneha@gmail.com                                    Pune
+          6 Rohan Deshmukh                                     9876543215      rohan@gmail.com                                    Nagpur
+
+6 rows selected.
+
+SQL> select*from food_orders;
+
+FOOD_ORDER_ID CUSTOMER_ID RESTAURANT_ID PARTNER_ID ORDER_TIM ORDER_STATUS         TOTAL_AMOUNT
+------------- ----------- ------------- ---------- --------- -------------------- ------------
+         1001           1           101        301 25-AUG-26 Delivered                     340
+         1002           1           103        302 26-AUG-26 Delivered                     399
+         1003           2           102        303 26-AUG-26 Delivered                     380
+         1004           3           104        304 27-AUG-26 Delivered                     230
+         1005           2           106        301 27-AUG-26 Delivered                     330
+         1006           4           105        305 28-AUG-26 Cancelled                     190
+         1007           5           101        306 28-AUG-26 Delivered                     380
+         1008           1           102        301 29-AUG-26 Delivered                     390
+         1009           6           106        302 29-AUG-26 Out for Delivery              500
+         1010           3           103        303 30-AUG-26 Delivered                     598
+         1011           4           101        304 30-AUG-26 Preparing                     380
+         1012           5           104        306 31-AUG-26 Delivered                     230
+         1013           2           105        301 01-SEP-26 Delivered                     340
+         1014           6           102        302 01-SEP-26 Preparing                     390
+         1015           1           106        303 02-SEP-26 Delivered                     550
+
+15 rows selected.
+
+SQL> select c.customer_name,f.food_order_id,f.total_amount,f.order_status
+  2  from customers c inner join food_orders f 
+  3  on c.customer_id=f.customer_id;
+
+CUSTOMER_NAME                                      FOOD_ORDER_ID TOTAL_AMOUNT ORDER_STATUS
+-------------------------------------------------- ------------- ------------ --------------------
+Sonali Shendge                                              1001          340 Delivered
+Sonali Shendge                                              1002          399 Delivered
+Rahul Patil                                                 1003          380 Delivered
+Priya Sharma                                                1004          230 Delivered
+Rahul Patil                                                 1005          330 Delivered
+Amit Kulkarni                                               1006          190 Cancelled
+Sneha Joshi                                                 1007          380 Delivered
+Sonali Shendge                                              1008          390 Delivered
+Rohan Deshmukh                                              1009          500 Out for Delivery
+Priya Sharma                                                1010          598 Delivered
+Amit Kulkarni                                               1011          380 Preparing
+Sneha Joshi                                                 1012          230 Delivered
+Rahul Patil                                                 1013          340 Delivered
+Rohan Deshmukh                                              1014          390 Preparing
+Sonali Shendge                                              1015          550 Delivered
+
+15 rows selected.
+
+SQL> select*from restaurants;
+
+RESTAURANT_ID RESTAURANT_NAME                                    CUISINE                        CITY                           AVERAGE_RATING
+------------- -------------------------------------------------- ------------------------------ ----
+          101 Food Corner                                        North Indian                   Pune                                      4.5
+          102 Spice Hub                                          Chinese                        Pune                                      4.2
+          103 Pizza Palace                                       Italian                        Mumbai                                    4.6
+          104 South Indian Cafe                                  South Indian                   Pune                                      4.3
+          105 Burger House                                       Fast Food                      Nashik                                    4.1
+          106 Biryani Point                                      Biryani                        Nagpur                                    4.7
+
+6 rows selected.
+
+SQL> select*from food_orders;
+
+FOOD_ORDER_ID CUSTOMER_ID RESTAURANT_ID PARTNER_ID ORDER_TIM ORDER_STATUS         TOTAL_AMOUNT
+------------- ----------- ------------- ---------- --------- -------------------- ------------
+         1001           1           101        301 25-AUG-26 Delivered                     340
+         1002           1           103        302 26-AUG-26 Delivered                     399
+         1003           2           102        303 26-AUG-26 Delivered                     380
+         1004           3           104        304 27-AUG-26 Delivered                     230
+         1005           2           106        301 27-AUG-26 Delivered                     330
+         1006           4           105        305 28-AUG-26 Cancelled                     190
+         1007           5           101        306 28-AUG-26 Delivered                     380
+         1008           1           102        301 29-AUG-26 Delivered                     390
+         1009           6           106        302 29-AUG-26 Out for Delivery              500
+         1010           3           103        303 30-AUG-26 Delivered                     598
+         1011           4           101        304 30-AUG-26 Preparing                     380
+         1012           5           104        306 31-AUG-26 Delivered                     230
+         1013           2           105        301 01-SEP-26 Delivered                     340
+         1014           6           102        302 01-SEP-26 Preparing                     390
+         1015           1           106        303 02-SEP-26 Delivered                     550
+
+15 rows selected.
+
+SQL> --Display restaurant name and order details
+SQL> select r.restaurant_name,f.food_order_id,f.order_amount,f.order_status
+  2  from restaurants r inner join food_orders f
+  3  on r.restaurant_id=f.restaurant_id;
+select r.restaurant_name,f.food_order_id,f.order_amount,f.order_status
+                                         *
+ERROR at line 1:
+ORA-00904: "F"."ORDER_AMOUNT": invalid identifier
+
+
+SQL> select r.restaurant_name,f.food_order_id,f.total_amount,f.order_status
+  2  from restaurants r inner join food_orders f
+  3  on r.restaurant_id=f.restaurant_id;
+
+RESTAURANT_NAME                                    FOOD_ORDER_ID TOTAL_AMOUNT ORDER_STATUS
+-------------------------------------------------- ------------- ------------ --------------------
+Food Corner                                                 1001          340 Delivered
+Pizza Palace                                                1002          399 Delivered
+Spice Hub                                                   1003          380 Delivered
+South Indian Cafe                                           1004          230 Delivered
+Biryani Point                                               1005          330 Delivered
+Burger House                                                1006          190 Cancelled
+Food Corner                                                 1007          380 Delivered
+Spice Hub                                                   1008          390 Delivered
+Biryani Point                                               1009          500 Out for Delivery
+Pizza Palace                                                1010          598 Delivered
+Food Corner                                                 1011          380 Preparing
+South Indian Cafe                                           1012          230 Delivered
+Burger House                                                1013          340 Delivered
+Spice Hub                                                   1014          390 Preparing
+Biryani Point                                               1015          550 Delivered
+
+15 rows selected.
+
+SQL> --disp cust name and their order id
+SQL> select c.customer_name,f.food_order_id
+  2  from customers c inner join food_orders f
+  3  on c.customer_id=f.customer_id;
+
+CUSTOMER_NAME                                      FOOD_ORDER_ID
+-------------------------------------------------- -------------
+Sonali Shendge                                              1001
+Sonali Shendge                                              1002
+Rahul Patil                                                 1003
+Priya Sharma                                                1004
+Rahul Patil                                                 1005
+Amit Kulkarni                                               1006
+Sneha Joshi                                                 1007
+Sonali Shendge                                              1008
+Rohan Deshmukh                                              1009
+Priya Sharma                                                1010
+Amit Kulkarni                                               1011
+Sneha Joshi                                                 1012
+Rahul Patil                                                 1013
+Rohan Deshmukh                                              1014
+Sonali Shendge                                              1015
+
+15 rows selected.
+
+SQL> ---disp rest name and menu item name
+SQL> select r.restaurant_name,i.item_id
+  2  from restaurants r inner join menu_items i
+  3  on r.restaurant_id=i.restaurant_id;
+
+RESTAURANT_NAME                                       ITEM_ID
+-------------------------------------------------- ----------
+Food Corner                                               201
+Food Corner                                               202
+Food Corner                                               203
+Spice Hub                                                 204
+Spice Hub                                                 205
+Spice Hub                                                 206
+Pizza Palace                                              207
+Pizza Palace                                              208
+South Indian Cafe                                         209
+South Indian Cafe                                         210
+Burger House                                              211
+Burger House                                              212
+Biryani Point                                             213
+Biryani Point                                             214
+Biryani Point                                             215
+
+15 rows selected.
+
+SQL> --dispcust name,ordr id and order amt
+SQL> select c.customer_id, o.order_id, o.total_amount
+  2  from customers c inner join food_orders o
+  3  on c.customer_id=o.customer_id;
+select c.customer_id, o.order_id, o.total_amount
+                      *
+ERROR at line 1:
+ORA-00904: "O"."ORDER_ID": invalid identifier
+
+
+SQL> select c.customer_id, o.food_order_id, o.total_amount
+  2   from customers c inner join food_orders o
+  3   on c.customer_id=o.customer_id;
+
+CUSTOMER_ID FOOD_ORDER_ID TOTAL_AMOUNT
+----------- ------------- ------------
+          1          1001          340
+          1          1002          399
+          2          1003          380
+          3          1004          230
+          2          1005          330
+          4          1006          190
+          5          1007          380
+          1          1008          390
+          6          1009          500
+          3          1010          598
+          4          1011          380
+          5          1012          230
+          2          1013          340
+          6          1014          390
+          1          1015          550
+
+15 rows selected.
+
+SQL> ---disp order id and del part name
+SQL> select*from food_orders;
+
+FOOD_ORDER_ID CUSTOMER_ID RESTAURANT_ID PARTNER_ID ORDER_TIM ORDER_STATUS         TOTAL_AMOUNT
+------------- ----------- ------------- ---------- --------- -------------------- ------------
+         1001           1           101        301 25-AUG-26 Delivered                     340
+         1002           1           103        302 26-AUG-26 Delivered                     399
+         1003           2           102        303 26-AUG-26 Delivered                     380
+         1004           3           104        304 27-AUG-26 Delivered                     230
+         1005           2           106        301 27-AUG-26 Delivered                     330
+         1006           4           105        305 28-AUG-26 Cancelled                     190
+         1007           5           101        306 28-AUG-26 Delivered                     380
+         1008           1           102        301 29-AUG-26 Delivered                     390
+         1009           6           106        302 29-AUG-26 Out for Delivery              500
+         1010           3           103        303 30-AUG-26 Delivered                     598
+         1011           4           101        304 30-AUG-26 Preparing                     380
+         1012           5           104        306 31-AUG-26 Delivered                     230
+         1013           2           105        301 01-SEP-26 Delivered                     340
+         1014           6           102        302 01-SEP-26 Preparing                     390
+         1015           1           106        303 02-SEP-26 Delivered                     550
+
+15 rows selected.
+
+SQL> select*from delivery_partners;
+
+PARTNER_ID PARTNER_NAME                                       PHONE           VEHICLE_TYPE         JOIN_DATE PARTNER_STATUS
+---------- -------------------------------------------------- --------------- -------------------- -
+       301 Akash Jadhav                                       9876500011      Bike                 10-JAN-25 Active
+       302 Vikas Shinde                                       9876500012      Bike                 15-FEB-25 Active
+       303 Karan Chavan                                       9876500013      Scooter              20-MAR-25 Active
+       304 Sagar More                                         9876500014      Bike                 05-APR-25 Active
+       305 Nikhil Pawar                                       9876500015      Scooter              12-MAY-25 Inactive
+       306 Pratik Kale                                        9876500016      Bike                 18-JUN-25 Active
+
+6 rows selected.
+
+SQL> select f.food_order_id,p.partner_name
+  2  from food_orders f inner join delivery_partners p
+  3  on f.partner_id=p.partner_id;
+
+FOOD_ORDER_ID PARTNER_NAME
+------------- --------------------------------------------------
+         1001 Akash Jadhav
+         1002 Vikas Shinde
+         1003 Karan Chavan
+         1004 Sagar More
+         1005 Akash Jadhav
+         1006 Nikhil Pawar
+         1007 Pratik Kale
+         1008 Akash Jadhav
+         1009 Vikas Shinde
+         1010 Karan Chavan
+         1011 Sagar More
+         1012 Pratik Kale
+         1013 Akash Jadhav
+         1014 Vikas Shinde
+         1015 Karan Chavan
+
+15 rows selected.
+
+SQL> ----subqueries
+SQL> ---Display menu items costing more than the average price.
+SQL> select item_name,price
+  2  from menu_items 
+  3  where price>(select avg(price) from menu_items);
+
+ITEM_NAME                                               PRICE
+-------------------------------------------------- ----------
+Paneer Tikka                                              220
+Butter Chicken                                            320
+Hakka Noodles                                             200
+Margherita Pizza                                          299
+Farmhouse Pizza                                           399
+Chicken Biryani                                           280
+Veg Biryani                                               220
+
+7 rows selected.
+
+SQL> -----Display the restaurant having the highest rating.
+SQL> select* from restaurants
+  2  where average_rating=(select max(average_rating) from restaurants);
+
+RESTAURANT_ID RESTAURANT_NAME                                    CUISINE                        CITY                           AVERAGE_RATING
+------------- -------------------------------------------------- ------------------------------ ----
+          106 Biryani Point                                      Biryani                        Nagpur                                    4.7
+
+SQL> ----Display customers who have placed at least one order
+SQL> select*from customers
+  2  where customer_id in(select customer_id from food_orders);
+
+CUSTOMER_ID CUSTOMER_NAME                                      PHONE           EMAIL                                              ADDRESS
+----------- -------------------------------------------------- --------------- ---------------------
+          1 Sonali Shendge                                     9876543210      sonali@gmail.com                                   Pune
+          2 Rahul Patil                                        9876543211      rahul@gmail.com                                    Mumbai
+          3 Priya Sharma                                       9876543212      priya@gmail.com                                    Pune
+          4 Amit Kulkarni                                      9876543213      amit@gmail.com                                     Nashik
+          5 Sneha Joshi                                        9876543214      sneha@gmail.com                                    Pune
+          6 Rohan Deshmukh                                     9876543215      rohan@gmail.com                                    Nagpur
+
+6 rows selected.
+
+SQL> select*from customers
+  2   where customer_id not in (select customer_id from food_orders);
+
+no rows selected
+
+SQL> ----join+grp by
+SQL> ---number of orders placed by each customer.
+SQL> select c.customer_name,count(f.food_order_id) as total_orders
+  2  from customers c inner join food_orders f
+  3  on c. customer_id=f.customer_id
+  4  group by  c.customer_name;
+
+CUSTOMER_NAME                                      TOTAL_ORDERS
+-------------------------------------------------- ------------
+Rahul Patil                                                   3
+Sonali Shendge                                                4
+Priya Sharma                                                  2
+Sneha Joshi                                                   2
+Amit Kulkarni                                                 2
+Rohan Deshmukh                                                2
+
+6 rows selected.

@@ -1,0 +1,75 @@
+CREATE TABLE Customers
+(
+    Customer_ID NUMBER(5) PRIMARY KEY,
+    Customer_Name VARCHAR2(50) NOT NULL,
+    Phone VARCHAR2(15) UNIQUE,
+    Email VARCHAR2(50) UNIQUE,
+    Address VARCHAR2(100)
+);
+CREATE TABLE Restaurants
+(
+    Restaurant_ID NUMBER(5) PRIMARY KEY,
+    Restaurant_Name VARCHAR2(50) NOT NULL,
+    Cuisine VARCHAR2(30),
+    City VARCHAR2(30),
+    Average_Rating NUMBER(2,1)
+);
+CREATE TABLE Menu_Items
+(
+    Item_ID NUMBER(5) PRIMARY KEY,
+    Restaurant_ID NUMBER(5),
+    Item_Name VARCHAR2(50) NOT NULL,
+    Category VARCHAR2(30),
+    Price NUMBER(8,2),
+    Is_Available CHAR(1),
+
+    CONSTRAINT fk_menu_restaurant
+    FOREIGN KEY (Restaurant_ID)
+    REFERENCES Restaurants(Restaurant_ID)
+);
+CREATE TABLE Delivery_Partners
+(
+    Partner_ID NUMBER(5) PRIMARY KEY,
+    Partner_Name VARCHAR2(50) NOT NULL,
+    Phone VARCHAR2(15) UNIQUE,
+    Vehicle_Type VARCHAR2(20),
+    Join_Date DATE,
+    Partner_Status VARCHAR2(20)
+);
+CREATE TABLE Food_Orders
+(
+    Food_Order_ID NUMBER(5) PRIMARY KEY,
+    Customer_ID NUMBER(5),
+    Restaurant_ID NUMBER(5),
+    Partner_ID NUMBER(5),
+    Order_Time DATE,
+    Order_Status VARCHAR2(20),
+    Total_Amount NUMBER(10,2),
+    CONSTRAINT fk_order_customer
+        FOREIGN KEY (Customer_ID)
+        REFERENCES Customers(Customer_ID),
+    CONSTRAINT fk_order_restaurant
+        FOREIGN KEY (Restaurant_ID)
+        REFERENCES Restaurants(Restaurant_ID),
+    CONSTRAINT fk_order_partner
+        FOREIGN KEY (Partner_ID)
+        REFERENCES Delivery_Partners(Partner_ID)
+);
+CREATE TABLE Food_Order_Items
+(
+    Food_Order_Item_ID NUMBER(5) PRIMARY KEY,
+    Food_Order_ID NUMBER(5),
+    Item_ID NUMBER(5),
+    Quantity NUMBER(3),
+    Unit_Price NUMBER(8,2),
+    CONSTRAINT fk_orderitem_order
+        FOREIGN KEY (Food_Order_ID)
+        REFERENCES Food_Orders(Food_Order_ID),
+    CONSTRAINT fk_orderitem_item
+        FOREIGN KEY (Item_ID)
+        REFERENCES Menu_Items(Item_ID)
+
+
+
+name of rest in whivh more no of oreder has been placed
+);

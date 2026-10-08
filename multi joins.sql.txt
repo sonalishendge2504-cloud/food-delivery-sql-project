@@ -1,0 +1,820 @@
+Connected to:
+Oracle Database 10g Enterprise Edition Release 10.2.0.1.0 - Production
+With the Partitioning, OLAP and Data Mining options
+
+SQL> ---multiple table joins questions
+SQL> --Q1. Display customer name, restaurant name, order ID and total amount.
+SQL> select c.customer_name,r.restaurant_name,fo.food_order_id,t.total_amount
+  2  from customers c join food_orders fo 
+  3  on c.customer_id=fo.customer_id
+  4  join restaurants r
+  5  on fo.restaurant_id=r.restaurant_id;
+select c.customer_name,r.restaurant_name,fo.food_order_id,t.total_amount
+                                                          *
+ERROR at line 1:
+ORA-00904: "T"."TOTAL_AMOUNT": invalid identifier
+
+
+SQL> select c.customer_name,r.restaurant_name,fo.food_order_id,fo.total_amount
+  2   from customers c join food_orders fo 
+  3   on c.customer_id=fo.customer_id
+  4   join restaurants r
+  5   on fo.restaurant_id=r.restaurant_id;
+
+CUSTOMER_NAME
+--------------------------------------------------
+RESTAURANT_NAME                                    FOOD_ORDER_ID TOTAL_AMOUNT
+-------------------------------------------------- ------------- ------------
+Sonali Shendge
+Food Corner                                                 1001          340
+
+Sonali Shendge
+Pizza Palace                                                1002          399
+
+Rahul Patil
+Spice Hub                                                   1003          380
+
+
+CUSTOMER_NAME
+--------------------------------------------------
+RESTAURANT_NAME                                    FOOD_ORDER_ID TOTAL_AMOUNT
+-------------------------------------------------- ------------- ------------
+Priya Sharma
+South Indian Cafe                                           1004          230
+
+Rahul Patil
+Biryani Point                                               1005          330
+
+Amit Kulkarni
+Burger House                                                1006          190
+
+
+CUSTOMER_NAME
+--------------------------------------------------
+RESTAURANT_NAME                                    FOOD_ORDER_ID TOTAL_AMOUNT
+-------------------------------------------------- ------------- ------------
+Sneha Joshi
+Food Corner                                                 1007          380
+
+Sonali Shendge
+Spice Hub                                                   1008          390
+
+Rohan Deshmukh
+Biryani Point                                               1009          500
+
+
+CUSTOMER_NAME
+--------------------------------------------------
+RESTAURANT_NAME                                    FOOD_ORDER_ID TOTAL_AMOUNT
+-------------------------------------------------- ------------- ------------
+Priya Sharma
+Pizza Palace                                                1010          598
+
+Amit Kulkarni
+Food Corner                                                 1011          380
+
+Sneha Joshi
+South Indian Cafe                                           1012          230
+
+
+CUSTOMER_NAME
+--------------------------------------------------
+RESTAURANT_NAME                                    FOOD_ORDER_ID TOTAL_AMOUNT
+-------------------------------------------------- ------------- ------------
+Rahul Patil
+Burger House                                                1013          340
+
+Rohan Deshmukh
+Spice Hub                                                   1014          390
+
+Sonali Shendge
+Biryani Point                                               1015          550
+
+
+15 rows selected.
+
+SQL> set lines 1000 pages 1000;
+SQL> /
+
+CUSTOMER_NAME                                      RESTAURANT_NAME                                    FOOD_ORDER_ID TOTAL_AMOUNT
+-------------------------------------------------- -------------------------------------------------
+Sonali Shendge                                     Food Corner                                                 1001          340
+Sonali Shendge                                     Pizza Palace                                                1002          399
+Rahul Patil                                        Spice Hub                                                   1003          380
+Priya Sharma                                       South Indian Cafe                                           1004          230
+Rahul Patil                                        Biryani Point                                               1005          330
+Amit Kulkarni                                      Burger House                                                1006          190
+Sneha Joshi                                        Food Corner                                                 1007          380
+Sonali Shendge                                     Spice Hub                                                   1008          390
+Rohan Deshmukh                                     Biryani Point                                               1009          500
+Priya Sharma                                       Pizza Palace                                                1010          598
+Amit Kulkarni                                      Food Corner                                                 1011          380
+Sneha Joshi                                        South Indian Cafe                                           1012          230
+Rahul Patil                                        Burger House                                                1013          340
+Rohan Deshmukh                                     Spice Hub                                                   1014          390
+Sonali Shendge                                     Biryani Point                                               1015          550
+
+15 rows selected.
+
+SQL> ---Q2. Display customer name, restaurant name and order status for every order.
+SQL> select c.customer_name,r.restaurant_name,fo.order_status
+  2  from customers c join food_orders fo
+  3  on c.customer_id=fo.customer_id
+  4  join restaurants r
+  5  on fo.restaurant_id=r.restaurant_id;
+
+CUSTOMER_NAME                                      RESTAURANT_NAME                                    ORDER_STATUS
+-------------------------------------------------- -------------------------------------------------
+Sonali Shendge                                     Food Corner                                        Delivered
+Sonali Shendge                                     Pizza Palace                                       Delivered
+Rahul Patil                                        Spice Hub                                          Delivered
+Priya Sharma                                       South Indian Cafe                                  Delivered
+Rahul Patil                                        Biryani Point                                      Delivered
+Amit Kulkarni                                      Burger House                                       Cancelled
+Sneha Joshi                                        Food Corner                                        Delivered
+Sonali Shendge                                     Spice Hub                                          Delivered
+Rohan Deshmukh                                     Biryani Point                                      Out for Delivery
+Priya Sharma                                       Pizza Palace                                       Delivered
+Amit Kulkarni                                      Food Corner                                        Preparing
+Sneha Joshi                                        South Indian Cafe                                  Delivered
+Rahul Patil                                        Burger House                                       Delivered
+Rohan Deshmukh                                     Spice Hub                                          Preparing
+Sonali Shendge                                     Biryani Point                                      Delivered
+
+15 rows selected.
+
+SQL> ---Q3. Display customer name, partner name and order ID.
+SQL> select  c.customer_name,dp.partner_name,fo.food_order_id
+  2  from customers c join food_orders fo
+  3  on  on c.customer_id=fo.customer_id
+  4  ;
+on  on c.customer_id=fo.customer_id
+    *
+ERROR at line 3:
+ORA-00936: missing expression
+
+
+SQL> select  c.customer_name,dp.partner_name,fo.food_order_id
+  2  from customers c join food_orders fo
+  3  on c.customer_id=fo.customer_id
+  4  join delivery_partners dp
+  5  on fo.partner_id=dp.partner_id;
+
+CUSTOMER_NAME                                      PARTNER_NAME                                       FOOD_ORDER_ID
+-------------------------------------------------- -------------------------------------------------
+Sonali Shendge                                     Akash Jadhav                                                1001
+Sonali Shendge                                     Vikas Shinde                                                1002
+Rahul Patil                                        Karan Chavan                                                1003
+Priya Sharma                                       Sagar More                                                  1004
+Rahul Patil                                        Akash Jadhav                                                1005
+Amit Kulkarni                                      Nikhil Pawar                                                1006
+Sneha Joshi                                        Pratik Kale                                                 1007
+Sonali Shendge                                     Akash Jadhav                                                1008
+Rohan Deshmukh                                     Vikas Shinde                                                1009
+Priya Sharma                                       Karan Chavan                                                1010
+Amit Kulkarni                                      Sagar More                                                  1011
+Sneha Joshi                                        Pratik Kale                                                 1012
+Rahul Patil                                        Akash Jadhav                                                1013
+Rohan Deshmukh                                     Vikas Shinde                                                1014
+Sonali Shendge                                     Karan Chavan                                                1015
+
+15 rows selected.
+
+SQL> select r.restaurant_name,c.customer_name,fo_total_amount
+  2  from restaurants r join food_orders fo
+  3  on r.restaurant_id=fo.restaurant_id
+  4  join customers c
+  5  on fo.customer_id=c.customer_id
+  6  where fo.total_amount>300;
+select r.restaurant_name,c.customer_name,fo_total_amount
+                                         *
+ERROR at line 1:
+ORA-00904: "FO_TOTAL_AMOUNT": invalid identifier
+
+
+SQL> SELECT r.restaurant_name,
+  2         c.customer_name,
+  3         fo.total_amount
+  4  FROM restaurants r
+  5  JOIN food_orders fo
+  6      ON r.restaurant_id = fo.restaurant_id
+  7  JOIN customers c
+  8      ON fo.customer_id = c.customer_id
+  9  WHERE fo.total_amount > 300;
+
+RESTAURANT_NAME                                    CUSTOMER_NAME                                      TOTAL_AMOUNT
+-------------------------------------------------- -------------------------------------------------
+Food Corner                                        Sonali Shendge                                              340
+Pizza Palace                                       Sonali Shendge                                              399
+Spice Hub                                          Rahul Patil                                                 380
+Biryani Point                                      Rahul Patil                                                 330
+Food Corner                                        Sneha Joshi                                                 380
+Spice Hub                                          Sonali Shendge                                              390
+Biryani Point                                      Rohan Deshmukh                                              500
+Pizza Palace                                       Priya Sharma                                                598
+Food Corner                                        Amit Kulkarni                                               380
+Burger House                                       Rahul Patil                                                 340
+Spice Hub                                          Rohan Deshmukh                                              390
+Biryani Point                                      Sonali Shendge                                              550
+
+12 rows selected.
+
+SQL> --Q5. Display orders placed at restaurants located in Pune.
+SQL> select c.customer_name,r.restaurant_name,fo.food_order_id
+  2  from customers c join food_orders fo
+  3  on c.customer_id=fo.customer_id
+  4  join restaurants r
+  5  on fo.restaurant_id=r.restaurant_id
+  6  where r.city='PUNE';
+
+no rows selected
+
+SQL> SELECT c.customer_name,
+  2         r.restaurant_name,
+  3         fo.food_order_id
+  4  FROM customers c
+  5  JOIN food_orders fo
+  6      ON c.customer_id = fo.customer_id
+  7  JOIN restaurants r
+  8      ON fo.restaurant_id = r.restaurant_id
+  9  WHERE r.city = 'Pune';
+
+CUSTOMER_NAME                                      RESTAURANT_NAME                                    FOOD_ORDER_ID
+-------------------------------------------------- -------------------------------------------------
+Sonali Shendge                                     Food Corner                                                 1001
+Rahul Patil                                        Spice Hub                                                   1003
+Priya Sharma                                       South Indian Cafe                                           1004
+Sneha Joshi                                        Food Corner                                                 1007
+Sonali Shendge                                     Spice Hub                                                   1008
+Amit Kulkarni                                      Food Corner                                                 1011
+Sneha Joshi                                        South Indian Cafe                                           1012
+Rohan Deshmukh                                     Spice Hub                                                   1014
+
+8 rows selected.
+
+SQL> ---Q6. Display orders handled by active delivery partners.
+SQL> select fo.food_order_id,d.partner_name,d.partner_status
+  2  from food_orders fo join delivery_partners d
+  3  on fo.partner_id=d.partner_id
+  4  join customers c
+  5  on fo.customer_id=c.customer_id
+  6  where d.partner_status='ACTIVE';
+
+no rows selected
+
+SQL> SELECT fo.food_order_id,
+  2         dp.partner_name,
+  3         dp.partner_status
+  4  FROM food_orders fo
+  5  JOIN delivery_partners dp
+  6      ON fo.partner_id = dp.partner_id
+  7  JOIN customers c
+  8      ON fo.customer_id = c.customer_id
+  9  WHERE dp.partner_status = 'Active';
+
+FOOD_ORDER_ID PARTNER_NAME                                       PARTNER_STATUS
+------------- -------------------------------------------------- --------------------
+         1001 Akash Jadhav                                       Active
+         1002 Vikas Shinde                                       Active
+         1003 Karan Chavan                                       Active
+         1004 Sagar More                                         Active
+         1005 Akash Jadhav                                       Active
+         1007 Pratik Kale                                        Active
+         1008 Akash Jadhav                                       Active
+         1009 Vikas Shinde                                       Active
+         1010 Karan Chavan                                       Active
+         1011 Sagar More                                         Active
+         1012 Pratik Kale                                        Active
+         1013 Akash Jadhav                                       Active
+         1014 Vikas Shinde                                       Active
+         1015 Karan Chavan                                       Active
+
+14 rows selected.
+
+SQL> SELECT fo.food_order_id,
+  2         dp.partner_name,
+  3         dp.partner_status
+  4  FROM food_orders fo
+  5  JOIN delivery_partners dp
+  6      ON fo.partner_id = dp.partner_id
+  7  WHERE dp.partner_status = 'Active';
+
+FOOD_ORDER_ID PARTNER_NAME                                       PARTNER_STATUS
+------------- -------------------------------------------------- --------------------
+         1001 Akash Jadhav                                       Active
+         1002 Vikas Shinde                                       Active
+         1003 Karan Chavan                                       Active
+         1004 Sagar More                                         Active
+         1005 Akash Jadhav                                       Active
+         1007 Pratik Kale                                        Active
+         1008 Akash Jadhav                                       Active
+         1009 Vikas Shinde                                       Active
+         1010 Karan Chavan                                       Active
+         1011 Sagar More                                         Active
+         1012 Pratik Kale                                        Active
+         1013 Akash Jadhav                                       Active
+         1014 Vikas Shinde                                       Active
+         1015 Karan Chavan                                       Active
+
+14 rows selected.
+
+SQL> select c.customer_name,r.restaurant_name,fo.order_time
+  2  from customers c join food_orders fo
+  3  on c.customer_id=fo.customer_id
+  4  join restaurants r
+  5  on fo.restaurant_id=r.restaurant_id
+  6  where fo.order_status='DELIVERED';
+
+no rows selected
+
+SQL> select c.customer_name,r.restaurant_name,fo.order_time
+  2  from customers c join food_orders fo
+  3  on c.customer_id=fo.customer_id
+  4  join restaurants r
+  5  on fo.restaurant_id=r.restaurant_id
+  6  where fo.order_status='Delivered';
+
+CUSTOMER_NAME                                      RESTAURANT_NAME                                    ORDER_TIM
+-------------------------------------------------- -------------------------------------------------
+Sonali Shendge                                     Food Corner                                        25-AUG-26
+Sonali Shendge                                     Pizza Palace                                       26-AUG-26
+Rahul Patil                                        Spice Hub                                          26-AUG-26
+Priya Sharma                                       South Indian Cafe                                  27-AUG-26
+Rahul Patil                                        Biryani Point                                      27-AUG-26
+Sneha Joshi                                        Food Corner                                        28-AUG-26
+Sonali Shendge                                     Spice Hub                                          29-AUG-26
+Priya Sharma                                       Pizza Palace                                       30-AUG-26
+Sneha Joshi                                        South Indian Cafe                                  31-AUG-26
+Rahul Patil                                        Burger House                                       01-SEP-26
+Sonali Shendge                                     Biryani Point                                      02-SEP-26
+
+11 rows selected.
+
+SQL> --Q8. Display customer name and total number of orders.
+SQL> select c.customer_name,count(fo.food_order_id) as number_of_orders
+  2  from customers c join food_orders fo
+  3  on c.customer_id=fo.customer_id
+  4  group by c.customer_name;
+
+CUSTOMER_NAME                                      NUMBER_OF_ORDERS
+-------------------------------------------------- ----------------
+Rahul Patil                                                       3
+Sonali Shendge                                                    4
+Priya Sharma                                                      2
+Sneha Joshi                                                       2
+Amit Kulkarni                                                     2
+Rohan Deshmukh                                                    2
+
+6 rows selected.
+
+SQL> select r.restaurant_name,sum(fo.total_amount) as total_revenue
+  2  from restaurants r join food_orders fo
+  3  on c.customer_id=fo.customer_id
+  4  group by r.restaurant_name;
+on c.customer_id=fo.customer_id
+   *
+ERROR at line 3:
+ORA-00904: "C"."CUSTOMER_ID": invalid identifier
+
+
+SQL>  select r.restaurant_name,sum(fo.total_amount) as total_revenue
+  2   from restaurants r join food_orders fo
+  3  on r.restaurant_id=fo.restaurant_id
+  4   group by r.restaurant_name;
+
+RESTAURANT_NAME                                    TOTAL_REVENUE
+-------------------------------------------------- -------------
+Food Corner                                                 1100
+Burger House                                                 530
+Biryani Point                                               1380
+Pizza Palace                                                 997
+South Indian Cafe                                            460
+Spice Hub                                                   1160
+
+6 rows selected.
+
+SQL> select d.partner_name,count(fo.food_order_id) as number_of_orders
+  2  from delivery_partners d join food_orders fo
+  3  on d.partner_id=fo.partner_id
+  4  group by d.partner_name;
+
+PARTNER_NAME                                       NUMBER_OF_ORDERS
+-------------------------------------------------- ----------------
+Sagar More                                                        2
+Nikhil Pawar                                                      1
+Pratik Kale                                                       2
+Vikas Shinde                                                      3
+Karan Chavan                                                      3
+Akash Jadhav                                                      4
+
+6 rows selected.
+
+SQL> select c.customer_name,sum(foi_quantity) as total_quantity
+  2  from customers c join food_orders fo
+  3  on c.customer_id=fo.customer_id
+  4  group by c.customer_name;
+select c.customer_name,sum(foi_quantity) as total_quantity
+                           *
+ERROR at line 1:
+ORA-00904: "FOI_QUANTITY": invalid identifier
+
+
+SQL>  select c.customer_name,sum(foi_quantity) as total_quantity
+  2   from customers c join food_orders fo
+  3   on c.customer_id=fo.customer_id
+  4  join food_order_items foi
+  5  on fo.food_order_id=foi.food_order_id
+  6  group by c.customer_name;
+ select c.customer_name,sum(foi_quantity) as total_quantity
+                            *
+ERROR at line 1:
+ORA-00904: "FOI_QUANTITY": invalid identifier
+
+
+SQL> SELECT c.customer_name,
+  2         SUM(foi.quantity) AS total_quantity
+  3  FROM customers c
+  4  JOIN food_orders fo
+  5      ON c.customer_id = fo.customer_id
+  6  JOIN food_order_items foi
+  7      ON fo.food_order_id = foi.food_order_id
+  8  JOIN menu_items mi
+  9      ON foi.item_id = mi.item_id
+ 10  GROUP BY c.customer_name;
+
+CUSTOMER_NAME                                      TOTAL_QUANTITY
+-------------------------------------------------- --------------
+Rahul Patil                                                     4
+Sonali Shendge                                                  5
+Priya Sharma                                                    4
+Sneha Joshi                                                     2
+Amit Kulkarni                                                   1
+Rohan Deshmukh                                                  1
+
+6 rows selected.
+
+SQL> SELECT c.customer_name,
+  2         SUM(foi.quantity) AS total_quantity
+  3  FROM customers c
+  4  JOIN food_orders fo
+  5      ON c.customer_id = fo.customer_id
+  6  JOIN food_order_items foi
+  7      ON fo.food_order_id = foi.food_order_id
+  8  group by c.customer_name;
+
+CUSTOMER_NAME                                      TOTAL_QUANTITY
+-------------------------------------------------- --------------
+Rahul Patil                                                     4
+Sonali Shendge                                                  5
+Priya Sharma                                                    4
+Sneha Joshi                                                     2
+Amit Kulkarni                                                   1
+Rohan Deshmukh                                                  1
+
+6 rows selected.
+
+SQL> --Q12. Find customers who ordered more than 2 food items.
+SQL> select c.customer_name,sum(foi_quantity) as totsl_quantity
+  2  from customers c join food_orders fo
+  3  on c.customer_id=fo.customer_id
+  4  join food_order_item foi
+  5  on fo.food_order_id=foi.food_order_id
+  6  group by c.customer_name
+  7  having sum(foi_quantity)>2;
+join food_order_item foi
+     *
+ERROR at line 4:
+ORA-00942: table or view does not exist
+
+
+SQL> select c.customer_name,sum(foi_quantity) as totsl_quantity
+  2  from customers c join food_orders fo
+  3  on c.customer_id=fo.customer_id
+  4  join food_order_items foi
+  5  group by c.customer_name
+  6  having sum(foi_quantity)>2;
+group by c.customer_name
+*
+ERROR at line 5:
+ORA-00905: missing keyword
+
+
+SQL>  select c.customer_name,sum(foi_quantity) as totsl_quantity
+  2   from customers c join food_orders fo
+  3   on c.customer_id=fo.customer_id
+  4   join food_order_items foi
+  5  on on fo.food_order_id=foi.food_order_id
+  6  group by c.customer_name
+  7  having sum(foi_quantity)>2;;
+on on fo.food_order_id=foi.food_order_id
+   *
+ERROR at line 5:
+ORA-00936: missing expression
+
+
+SQL>  select c.customer_name,sum(foi_quantity) as totsl_quantit
+  2   from customers c join food_orders fo
+  3   on c.customer_id=fo.customer_id
+  4   join food_order_items foi
+  5  on fo.food_order_id=foi.food_order_id
+  6   group by c.customer_name
+  7   having sum(foi_quantity)>2;;
+ having sum(foi_quantity)>2;
+                           *
+ERROR at line 7:
+ORA-00911: invalid character
+
+
+SQL> SELECT c.customer_name,
+  2         SUM(foi.quantity) AS total_quantity
+  3  FROM customers c
+  4  JOIN food_orders fo
+  5      ON c.customer_id = fo.customer_id
+  6  JOIN food_order_items foi
+  7      ON fo.food_order_id = foi.food_order_id
+  8  GROUP BY c.customer_name
+  9  HAVING SUM(foi.quantity) > 2;
+
+CUSTOMER_NAME                                      TOTAL_QUANTITY
+-------------------------------------------------- --------------
+Rahul Patil                                                     4
+Sonali Shendge                                                  5
+Priya Sharma                                                    4
+
+SQL> ---Q13. Find total quantity sold by each restaurant.
+SQL> select sum(foi.quantity) as total_quantity,r.restaurant_name
+  2  from restaurants r join food_orders fo
+  3  on r.restaurant_id=fo.restaurant_id
+  4  join food_orders_items foi
+  5  on fo.food_order_id=foi.food_order_id
+  6  group by r.restaurant_name;
+join food_orders_items foi
+     *
+ERROR at line 4:
+ORA-00942: table or view does not exist
+
+
+SQL> select sum(foi.quantity) as total_quantity,r.restaurant_name
+  2  from restaurants r join food_orders fo
+  3  on r.restaurant_id=fo.restaurant_id
+  4  JOIN food_order_items foi
+  5   on fo.food_order_id=foi.food_order_id
+  6   group by r.restaurant_name;
+
+TOTAL_QUANTITY RESTAURANT_NAME
+-------------- --------------------------------------------------
+             5 Food Corner
+             1 Burger House
+             3 Biryani Point
+             3 Pizza Palace
+             2 South Indian Cafe
+             3 Spice Hub
+
+6 rows selected.
+
+SQL> --Q14. Find restaurants that sold more than 2 items.
+SQL> select r.restaurant_name
+  2  ;
+
+*
+ERROR at line 2:
+ORA-00923: FROM keyword not found where expected
+
+
+SQL> select r.restaurant_name,sum(foi.quantity) as total_quantity
+  2  from restaurants r join food_orders fo
+  3  on r.restaurant_id=fo.restaurant_id
+  4  JOIN food_order_items foi
+  5   on fo.food_order_id=foi.food_order_id
+  6   group by r.restaurant_name
+  7  having sum(foi.quantity) > 2;
+
+RESTAURANT_NAME                                    TOTAL_QUANTITY
+-------------------------------------------------- --------------
+Food Corner                                                     5
+Biryani Point                                                   3
+Pizza Palace                                                    3
+Spice Hub                                                       3
+
+SQL> select m.menu_items,sum(foi.quantity) JOIN food_order_items foi
+  2   on fo.food_order_id=foi.food_order_id
+  3   group by r.restaurant_name;;
+select m.menu_items,sum(foi.quantity) JOIN food_order_items foi
+                                           *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected
+
+
+SQL>  select m.menu_items,sum(foi.quantity) as total_quantity
+  2  from menu_items m join food_order_items foi
+  3  on m.item_id=foi.item_id
+  4  join food_orders fo
+  5  on foi.food_order_id=fo.food_order_id
+  6  group by m.;
+group by m.
+          *
+ERROR at line 6:
+ORA-01747: invalid user.table.column, table.column, or column specification
+
+
+SQL> select m.item_name,sum(foi.quantity) as total_quantity
+  2  from menu_items m join food_order_items foi
+  3  on m.item_id=foi.item_id
+  4  join food_orders fo
+  5  on foi.food_order_id=fo.food_order_id
+  6  group by m.item_name;
+
+ITEM_NAME                                          TOTAL_QUANTITY
+-------------------------------------------------- --------------
+Margherita Pizza                                                2
+Garlic Naan                                                     2
+Hakka Noodles                                                   1
+Chicken Biryani                                                 2
+Paneer Tikka                                                    2
+Masala Dosa                                                     1
+Raita                                                           1
+Cheese Burger                                                   1
+Idli Sambar                                                     1
+Farmhouse Pizza                                                 1
+Butter Chicken                                                  1
+Fried Rice                                                      1
+Veg Manchurian                                                  1
+
+13 rows selected.
+
+SQL> select m.item_name,sum(foi.quantity) as total_quantity
+  2  from menu_items m join food_order_items foi
+  3  on m.item_id=foi.item_id
+  4  join food_orders fo
+  5  on foi.food_order_id=fo.food_order_id
+  6  group by m.item_name
+  7  having sum(foi.quantity) >1;
+
+ITEM_NAME                                          TOTAL_QUANTITY
+-------------------------------------------------- --------------
+Margherita Pizza                                                2
+Garlic Naan                                                     2
+Chicken Biryani                                                 2
+Paneer Tikka                                                    2
+
+SQL> ----Q17. Calculate customer-wise item spending
+SQL> select c.customer_name,sum(foi.quantity * m_price) as total_spending
+  2  from customers c join food_orders fo
+  3  on c.customer_id=fo.customer_id
+  4  join food_order_items foi
+  5  on fo.food_order_id=foi.food_order_id
+  6  join menu_items m
+  7  on foi.item_id=m.item_id
+  8  group by c.customer_name;
+select c.customer_name,sum(foi.quantity * m_price) as total_spending
+                                          *
+ERROR at line 1:
+ORA-00904: "M_PRICE": invalid identifier
+
+
+SQL> SELECT c.customer_name,
+  2         SUM(foi.quantity * mi.price) AS total_spending
+  3  FROM customers c
+  4  JOIN food_orders fo
+  5      ON c.customer_id = fo.customer_id
+  6  JOIN food_order_items foi
+  7      ON fo.food_order_id = foi.food_order_id
+  8  JOIN menu_items mi
+  9      ON foi.item_id = mi.item_id
+ 10  GROUP BY c.customer_name;
+
+CUSTOMER_NAME                                      TOTAL_SPENDING
+-------------------------------------------------- --------------
+Rahul Patil                                                   710
+Sonali Shendge                                                929
+Priya Sharma                                                  828
+Sneha Joshi                                                   540
+Amit Kulkarni                                                 190
+Rohan Deshmukh                                                280
+
+6 rows selected.
+
+SQL>  SELECT c.customer_name,
+  2          SUM(foi.quantity * mi.price) AS total_spending
+  3   FROM customers c
+  4   JOIN food_orders fo
+  5       ON c.customer_id = fo.customer_id
+  6   JOIN food_order_items foi
+  7       ON fo.food_order_id = foi.food_order_id
+  8   JOIN menu_items mi
+  9       ON foi.item_id = mi.item_id
+ 10   GROUP BY c.customer_name
+ 11  having SUM(foi.quantity * mi.price) > 500;
+
+CUSTOMER_NAME                                      TOTAL_SPENDING
+-------------------------------------------------- --------------
+Rahul Patil                                                   710
+Sonali Shendge                                                929
+Priya Sharma                                                  828
+Sneha Joshi                                                   540
+
+SQL> SELECT r.restaurant_name,
+  2         SUM(foi.quantity * foi.unit_price) AS item_revenue
+  3  FROM restaurants r
+  4  JOIN menu_items mi
+  5      ON r.restaurant_id = mi.restaurant_id
+  6  JOIN food_order_items foi
+  7      ON mi.item_id = foi.item_id
+  8  JOIN food_orders fo
+  9      ON foi.food_order_id = fo.food_order_id
+ 10  GROUP BY r.restaurant_name;
+
+RESTAURANT_NAME                                    ITEM_REVENUE
+-------------------------------------------------- ------------
+Food Corner                                                 880
+Burger House                                                190
+Biryani Point                                               610
+Pizza Palace                                                997
+South Indian Cafe                                           230
+Spice Hub                                                   570
+
+6 rows selected.
+
+SQL> SELECT r.restaurant_name,
+  2         SUM(foi.quantity * mi.price) AS total_revenue
+  3  FROM restaurants r
+  4  JOIN food_orders fo
+  5      ON r.restaurant_id = fo.restaurant_id
+  6  JOIN food_order_items foi
+  7      ON fo.food_order_id = foi.food_order_id
+  8  JOIN menu_items mi
+  9      ON foi.item_id = mi.item_id
+ 10  GROUP BY r.restaurant_name;
+
+RESTAURANT_NAME                                    TOTAL_REVENUE
+-------------------------------------------------- -------------
+Food Corner                                                  880
+Burger House                                                 190
+Biryani Point                                                610
+Pizza Palace                                                 997
+South Indian Cafe                                            230
+Spice Hub                                                    570
+
+6 rows selected.
+
+SQL> ---Q21. Find customers having more than 1 order and spending more than ?700.
+SQL> select c.customer_name,count(fo.food_order_id) as total_orders
+  2  sum(fo.total_amount) as total_spending
+  3  from customers c join food_orders fo
+  4  on c.customer_id=fo.customer_id
+  5  group by c.customer_name
+  6  having count(fo.food_order_id) > 1
+  7  and sum(fo.total_amount) > 700;
+sum(fo.total_amount) as total_spending
+*
+ERROR at line 2:
+ORA-00923: FROM keyword not found where expected
+
+
+SQL> select c.customer_name,count(fo.food_order_id) as total_orders,
+  2   sum(fo.total_amount) as total_spending
+  3   from customers c join food_orders fo
+  4   on c.customer_id=fo.customer_id
+  5   group by c.customer_name
+  6   having count(fo.food_order_id) > 1
+  7   and sum(fo.total_amount) > 700;
+
+CUSTOMER_NAME                                      TOTAL_ORDERS TOTAL_SPENDING
+-------------------------------------------------- ------------ --------------
+Rahul Patil                                                   3           1050
+Sonali Shendge                                                4           1679
+Priya Sharma                                                  2            828
+Rohan Deshmukh                                                2            890
+
+SQL> --Q23. Find active delivery partners who handled more than 2 orders.
+SQL> SELECT dp.partner_name,
+  2         COUNT(fo.food_order_id) AS total_orders
+  3  FROM delivery_partners dp
+  4  JOIN food_orders fo
+  5      ON dp.partner_id = fo.partner_id
+  6  WHERE dp.partner_status = 'Active'
+  7  GROUP BY dp.partner_name
+  8  HAVING COUNT(fo.food_order_id) > 2;
+
+PARTNER_NAME                                       TOTAL_ORDERS
+-------------------------------------------------- ------------
+Vikas Shinde                                                  3
+Karan Chavan                                                  3
+Akash Jadhav                                                  4
+
+SQL> -Q24. Find customer-restaurant combinations having more than 1 order.
+SP2-0734: unknown command beginning "-Q24. Find..." - rest of line ignored.
+SQL> ---Q24. Find customer-restaurant combinations having more than 1 order.
+SQL> SELECT c.customer_name,
+  2         r.restaurant_name,
+  3         COUNT(fo.food_order_id) AS total_orders
+  4  FROM customers c
+  5  JOIN food_orders fo
+  6      ON c.customer_id = fo.customer_id
+  7  JOIN restaurants r
+  8      ON fo.restaurant_id = r.restaurant_id
+  9  GROUP BY c.customer_name,
+ 10           r.restaurant_name
+ 11  HAVING COUNT(fo.food_order_id) > 1;
+
+no rows selected

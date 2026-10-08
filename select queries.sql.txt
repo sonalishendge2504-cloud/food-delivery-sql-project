@@ -1,0 +1,1462 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+SQL> select*from customers;
+
+no rows selected
+
+SQL> INSERT INTO Customers VALUES (1, 'Sonali Shendge', '9876543210', 'sonali@gmail.com', 'Pune');
+
+1 row created.
+
+SQL> INSERT INTO Customers VALUES (2, 'Rahul Patil', '9876543211', 'rahul@gmail.com', 'Mumbai');
+
+1 row created.
+
+SQL> INSERT INTO Customers VALUES (3, 'Priya Sharma', '9876543212', 'priya@gmail.com', 'Pune');
+
+1 row created.
+
+SQL> INSERT INTO Customers VALUES (4, 'Amit Kulkarni', '9876543213', 'amit@gmail.com', 'Nashik');
+
+1 row created.
+
+SQL> INSERT INTO Customers VALUES (5, 'Sneha Joshi', '9876543214', 'sneha@gmail.com', 'Pune');
+
+1 row created.
+
+SQL> INSERT INTO Customers VALUES (6, 'Rohan Deshmukh', '9876543215', 'rohan@gmail.com', 'Nagpur');
+
+1 row created.
+
+SQL> INSERT INTO Restaurants VALUES (101, 'Food Corner', 'North Indian', 'Pune', 4.5);
+
+1 row created.
+
+SQL> INSERT INTO Restaurants VALUES (102, 'Spice Hub', 'Chinese', 'Pune', 4.2);
+
+1 row created.
+
+SQL> INSERT INTO Restaurants VALUES (103, 'Pizza Palace', 'Italian', 'Mumbai', 4.6);
+
+1 row created.
+
+SQL> INSERT INTO Restaurants VALUES (104, 'South Indian Cafe', 'South Indian', 'Pune', 4.3);
+
+1 row created.
+
+SQL> INSERT INTO Restaurants VALUES (105, 'Burger House', 'Fast Food', 'Nashik', 4.1);
+
+1 row created.
+
+SQL> INSERT INTO Restaurants VALUES (106, 'Biryani Point', 'Biryani', 'Nagpur', 4.7);
+
+1 row created.
+
+SQL> INSERT INTO Menu_Items VALUES (201, 101, 'Paneer Tikka', 'Starter', 220, 'Y');
+
+1 row created.
+
+SQL> INSERT INTO Menu_Items VALUES (202, 101, 'Butter Chicken', 'Main Course', 320, 'Y');
+
+1 row created.
+
+SQL> INSERT INTO Menu_Items VALUES (203, 101, 'Garlic Naan', 'Bread', 60, 'Y');
+
+1 row created.
+
+SQL> 
+SQL> INSERT INTO Menu_Items VALUES (204, 102, 'Veg Manchurian', 'Starter', 180, 'Y');
+
+1 row created.
+
+SQL> INSERT INTO Menu_Items VALUES (205, 102, 'Hakka Noodles', 'Main Course', 200, 'Y');
+
+1 row created.
+
+SQL> INSERT INTO Menu_Items VALUES (206, 102, 'Fried Rice', 'Main Course', 190, 'Y');
+
+1 row created.
+
+SQL> 
+SQL> INSERT INTO Menu_Items VALUES (207, 103, 'Margherita Pizza', 'Pizza', 299, 'Y');
+
+1 row created.
+
+SQL> INSERT INTO Menu_Items VALUES (208, 103, 'Farmhouse Pizza', 'Pizza', 399, 'Y');
+
+1 row created.
+
+SQL> 
+SQL> INSERT INTO Menu_Items VALUES (209, 104, 'Masala Dosa', 'South Indian', 130, 'Y');
+
+1 row created.
+
+SQL> INSERT INTO Menu_Items VALUES (210, 104, 'Idli Sambar', 'South Indian', 100, 'Y');
+
+1 row created.
+
+SQL> 
+SQL> INSERT INTO Menu_Items VALUES (211, 105, 'Veg Burger', 'Burger', 150, 'Y');
+
+1 row created.
+
+SQL> INSERT INTO Menu_Items VALUES (212, 105, 'Cheese Burger', 'Burger', 190, 'Y');
+
+1 row created.
+
+SQL> 
+SQL> INSERT INTO Menu_Items VALUES (213, 106, 'Chicken Biryani', 'Biryani', 280, 'Y');
+
+1 row created.
+
+SQL> INSERT INTO Menu_Items VALUES (214, 106, 'Veg Biryani', 'Biryani', 220, 'Y');
+
+1 row created.
+
+SQL> INSERT INTO Menu_Items VALUES (215, 106, 'Raita', 'Side Dish', 50, 'Y');
+
+1 row created.
+
+SQL> INSERT INTO Delivery_Partners VALUES
+  2  (301, 'Akash Jadhav', '9876500011', 'Bike', DATE '2025-01-10', 'Active');
+
+1 row created.
+
+SQL> 
+SQL> INSERT INTO Delivery_Partners VALUES
+  2  (302, 'Vikas Shinde', '9876500012', 'Bike', DATE '2025-02-15', 'Active');
+
+1 row created.
+
+SQL> 
+SQL> INSERT INTO Delivery_Partners VALUES
+  2  (303, 'Karan Chavan', '9876500013', 'Scooter', DATE '2025-03-20', 'Active');
+
+1 row created.
+
+SQL> 
+SQL> INSERT INTO Delivery_Partners VALUES
+  2  (304, 'Sagar More', '9876500014', 'Bike', DATE '2025-04-05', 'Active');
+
+1 row created.
+
+SQL> 
+SQL> INSERT INTO Delivery_Partners VALUES
+  2  (305, 'Nikhil Pawar', '9876500015', 'Scooter', DATE '2025-05-12', 'Inactive');
+
+1 row created.
+
+SQL> 
+SQL> INSERT INTO Delivery_Partners VALUES
+  2  (306, 'Pratik Kale', '9876500016', 'Bike', DATE '2025-06-18', 'Active');
+
+1 row created.
+
+SQL> INSERT INTO Food_Orders VALUES
+  2  (1001, 1, 101, 301, DATE '2026-08-25', 'Delivered', 340);
+
+1 row created.
+
+SQL> 
+SQL> INSERT INTO Food_Orders VALUES
+  2  (1002, 1, 103, 302, DATE '2026-08-26', 'Delivered', 399);
+
+1 row created.
+
+SQL> 
+SQL> INSERT INTO Food_Orders VALUES
+  2  (1003, 2, 102, 303, DATE '2026-08-26', 'Delivered', 380);
+
+1 row created.
+
+SQL> 
+SQL> INSERT INTO Food_Orders VALUES
+  2  (1004, 3, 104, 304, DATE '2026-08-27', 'Delivered', 230);
+
+1 row created.
+
+SQL> 
+SQL> INSERT INTO Food_Orders VALUES
+  2  (1005, 2, 106, 301, DATE '2026-08-27', 'Delivered', 330);
+
+1 row created.
+
+SQL> 
+SQL> INSERT INTO Food_Orders VALUES
+  2  (1006, 4, 105, 305, DATE '2026-08-28', 'Cancelled', 190);
+
+1 row created.
+
+SQL> 
+SQL> INSERT INTO Food_Orders VALUES
+  2  (1007, 5, 101, 306, DATE '2026-08-28', 'Delivered', 380);
+
+1 row created.
+
+SQL> 
+SQL> INSERT INTO Food_Orders VALUES
+  2  (1008, 1, 102, 301, DATE '2026-08-29', 'Delivered', 390);
+
+1 row created.
+
+SQL> 
+SQL> INSERT INTO Food_Orders VALUES
+  2  (1009, 6, 106, 302, DATE '2026-08-29', 'Out for Delivery', 500);
+
+1 row created.
+
+SQL> 
+SQL> INSERT INTO Food_Orders VALUES
+  2  (1010, 3, 103, 303, DATE '2026-08-30', 'Delivered', 598);
+
+1 row created.
+
+SQL> 
+SQL> INSERT INTO Food_Orders VALUES
+  2  (1011, 4, 101, 304, DATE '2026-08-30', 'Preparing', 380);
+
+1 row created.
+
+SQL> 
+SQL> INSERT INTO Food_Orders VALUES
+  2  (1012, 5, 104, 306, DATE '2026-08-31', 'Delivered', 230);
+
+1 row created.
+
+SQL> 
+SQL> INSERT INTO Food_Orders VALUES
+  2  (1013, 2, 105, 301, DATE '2026-09-01', 'Delivered', 340);
+
+1 row created.
+
+SQL> 
+SQL> INSERT INTO Food_Orders VALUES
+  2  (1014, 6, 102, 302, DATE '2026-09-01', 'Preparing', 390);
+
+1 row created.
+
+SQL> 
+SQL> INSERT INTO Food_Orders VALUES
+  2  (1015, 1, 106, 303, DATE '2026-09-02', 'Delivered', 550);
+
+1 row created.
+
+SQL> INSERT INTO Food_Order_Items VALUES (1, 1001, 201, 1, 220);
+
+1 row created.
+
+SQL> INSERT INTO Food_Order_Items VALUES (2, 1001, 203, 2, 60);
+
+1 row created.
+
+SQL> INSERT INTO Food_Order_Items VALUES (3, 1002, 208, 1, 399);
+
+1 row created.
+
+SQL> INSERT INTO Food_Order_Items VALUES (4, 1003, 204, 1, 180);
+
+1 row created.
+
+SQL> INSERT INTO Food_Order_Items VALUES (5, 1003, 205, 1, 200);
+
+1 row created.
+
+SQL> INSERT INTO Food_Order_Items VALUES (6, 1004, 209, 1, 130);
+
+1 row created.
+
+SQL> INSERT INTO Food_Order_Items VALUES (7, 1004, 210, 1, 100);
+
+1 row created.
+
+SQL> INSERT INTO Food_Order_Items VALUES (8, 1005, 213, 1, 280);
+
+1 row created.
+
+SQL> INSERT INTO Food_Order_Items VALUES (9, 1005, 215, 1, 50);
+
+1 row created.
+
+SQL> INSERT INTO Food_Order_Items VALUES (10, 1006, 212, 1, 190);
+
+1 row created.
+
+SQL> INSERT INTO Food_Order_Items VALUES (11, 1007, 202, 1, 320);
+
+1 row created.
+
+SQL> INSERT INTO Food_Order_Items VALUES (12, 1007, 201, 1, 220);
+
+1 row created.
+
+SQL> INSERT INTO Food_Order_Items VALUES (13, 1008, 206, 1, 190);
+
+1 row created.
+
+SQL> INSERT INTO Food_Order_Items VALUES (14, 1009, 213, 1, 280);
+
+1 row created.
+
+SQL> INSERT INTO Food_Order_Items VALUES (15, 1010, 207, 2, 299);
+
+1 row created.
+
+SQL> 
+SQL> COMMIT;
+
+Commit complete.
+
+SQL> ----select queries
+SQL> select*from customers;
+
+CUSTOMER_ID CUSTOMER_NAME                                      PHONE
+----------- -------------------------------------------------- ---------------
+EMAIL
+--------------------------------------------------
+ADDRESS
+--------------------------------------------------------------------------------
+          1 Sonali Shendge                                     9876543210
+sonali@gmail.com
+Pune
+
+          2 Rahul Patil                                        9876543211
+rahul@gmail.com
+Mumbai
+
+CUSTOMER_ID CUSTOMER_NAME                                      PHONE
+----------- -------------------------------------------------- ---------------
+EMAIL
+--------------------------------------------------
+ADDRESS
+--------------------------------------------------------------------------------
+
+          3 Priya Sharma                                       9876543212
+priya@gmail.com
+Pune
+
+          4 Amit Kulkarni                                      9876543213
+amit@gmail.com
+
+CUSTOMER_ID CUSTOMER_NAME                                      PHONE
+----------- -------------------------------------------------- ---------------
+EMAIL
+--------------------------------------------------
+ADDRESS
+--------------------------------------------------------------------------------
+Nashik
+
+          5 Sneha Joshi                                        9876543214
+sneha@gmail.com
+Pune
+
+          6 Rohan Deshmukh                                     9876543215
+
+CUSTOMER_ID CUSTOMER_NAME                                      PHONE
+----------- -------------------------------------------------- ---------------
+EMAIL
+--------------------------------------------------
+ADDRESS
+--------------------------------------------------------------------------------
+rohan@gmail.com
+Nagpur
+
+
+6 rows selected.
+
+SQL> set lines 1000 pages 1000;
+SQL> /
+
+CUSTOMER_ID CUSTOMER_NAME                                      PHONE           EMAIL                                              ADDRESS
+----------- -------------------------------------------------- --------------- ---------------------
+          1 Sonali Shendge                                     9876543210      sonali@gmail.com                                   Pune
+          2 Rahul Patil                                        9876543211      rahul@gmail.com                                    Mumbai
+          3 Priya Sharma                                       9876543212      priya@gmail.com                                    Pune
+          4 Amit Kulkarni                                      9876543213      amit@gmail.com                                     Nashik
+          5 Sneha Joshi                                        9876543214      sneha@gmail.com                                    Pune
+          6 Rohan Deshmukh                                     9876543215      rohan@gmail.com                                    Nagpur
+
+6 rows selected.
+
+SQL> ---2. Display customer names and phone numbers
+SQL> select customer_name,phone from customers;
+
+CUSTOMER_NAME                                      PHONE
+-------------------------------------------------- ---------------
+Sonali Shendge                                     9876543210
+Rahul Patil                                        9876543211
+Priya Sharma                                       9876543212
+Amit Kulkarni                                      9876543213
+Sneha Joshi                                        9876543214
+Rohan Deshmukh                                     9876543215
+
+6 rows selected.
+
+SQL> ---3. Display restaurants from Pune
+SQL> select*from restaurants 
+  2  where city='Pune';
+
+RESTAURANT_ID RESTAURANT_NAME                                    CUISINE                        CITY                           AVERAGE_RATING
+------------- -------------------------------------------------- ------------------------------ ----
+          101 Food Corner                                        North Indian                   Pune                                      4.5
+          102 Spice Hub                                          Chinese                        Pune                                      4.2
+          104 South Indian Cafe                                  South Indian                   Pune                                      4.3
+
+SQL> --Display restaurants having rating greater than 4.3
+SQL> select * from restaurants 
+  2  where rating>4.3;
+where rating>4.3
+      *
+ERROR at line 2:
+ORA-00904: "RATING": invalid identifier
+
+
+SQL> select * from restaurants 
+  2  where avg_rating>4.3;
+where avg_rating>4.3
+      *
+ERROR at line 2:
+ORA-00904: "AVG_RATING": invalid identifier
+
+
+SQL> select*from restaurants;
+
+RESTAURANT_ID RESTAURANT_NAME                                    CUISINE                        CITY                           AVERAGE_RATING
+------------- -------------------------------------------------- ------------------------------ ----
+          101 Food Corner                                        North Indian                   Pune                                      4.5
+          102 Spice Hub                                          Chinese                        Pune                                      4.2
+          103 Pizza Palace                                       Italian                        Mumbai                                    4.6
+          104 South Indian Cafe                                  South Indian                   Pune                                      4.3
+          105 Burger House                                       Fast Food                      Nashik                                    4.1
+          106 Biryani Point                                      Biryani                        Nagpur                                    4.7
+
+6 rows selected.
+
+SQL>  select * from restaurants 
+  2   where average_rating>4.3;
+
+RESTAURANT_ID RESTAURANT_NAME                                    CUISINE                        CITY                           AVERAGE_RATING
+------------- -------------------------------------------------- ------------------------------ ----
+          101 Food Corner                                        North Indian                   Pune                                      4.5
+          103 Pizza Palace                                       Italian                        Mumbai                                    4.6
+          106 Biryani Point                                      Biryani                        Nagpur                                    4.7
+
+SQL> select*from menu_items;
+
+   ITEM_ID RESTAURANT_ID ITEM_NAME                                          CATEGORY                            PRICE I
+---------- ------------- -------------------------------------------------- ------------------------
+       201           101 Paneer Tikka                                       Starter                               220 Y
+       202           101 Butter Chicken                                     Main Course                           320 Y
+       203           101 Garlic Naan                                        Bread                                  60 Y
+       204           102 Veg Manchurian                                     Starter                               180 Y
+       205           102 Hakka Noodles                                      Main Course                           200 Y
+       206           102 Fried Rice                                         Main Course                           190 Y
+       207           103 Margherita Pizza                                   Pizza                                 299 Y
+       208           103 Farmhouse Pizza                                    Pizza                                 399 Y
+       209           104 Masala Dosa                                        South Indian                          130 Y
+       210           104 Idli Sambar                                        South Indian                          100 Y
+       211           105 Veg Burger                                         Burger                                150 Y
+       212           105 Cheese Burger                                      Burger                                190 Y
+       213           106 Chicken Biryani                                    Biryani                               280 Y
+       214           106 Veg Biryani                                        Biryani                               220 Y
+       215           106 Raita                                              Side Dish                              50 Y
+
+15 rows selected.
+
+SQL> ----5. Display menu items costing more than 200
+SQL> select*from menu_items where price>2000;
+
+no rows selected
+
+SQL> --6. Display available menu items
+SQL> select*from menu_items 
+  2  where is_available='Y';
+
+   ITEM_ID RESTAURANT_ID ITEM_NAME                                          CATEGORY                            PRICE I
+---------- ------------- -------------------------------------------------- ------------------------
+       201           101 Paneer Tikka                                       Starter                               220 Y
+       202           101 Butter Chicken                                     Main Course                           320 Y
+       203           101 Garlic Naan                                        Bread                                  60 Y
+       204           102 Veg Manchurian                                     Starter                               180 Y
+       205           102 Hakka Noodles                                      Main Course                           200 Y
+       206           102 Fried Rice                                         Main Course                           190 Y
+       207           103 Margherita Pizza                                   Pizza                                 299 Y
+       208           103 Farmhouse Pizza                                    Pizza                                 399 Y
+       209           104 Masala Dosa                                        South Indian                          130 Y
+       210           104 Idli Sambar                                        South Indian                          100 Y
+       211           105 Veg Burger                                         Burger                                150 Y
+       212           105 Cheese Burger                                      Burger                                190 Y
+       213           106 Chicken Biryani                                    Biryani                               280 Y
+       214           106 Veg Biryani                                        Biryani                               220 Y
+       215           106 Raita                                              Side Dish                              50 Y
+
+15 rows selected.
+
+SQL> select*from customers where address='PUNE';
+
+no rows selected
+
+SQL> ---Display restaurants in ascending order of rating
+SQL> select * from restaurants order by average_rating;
+
+RESTAURANT_ID RESTAURANT_NAME                                    CUISINE                        CITY                           AVERAGE_RATING
+------------- -------------------------------------------------- ------------------------------ ----
+          105 Burger House                                       Fast Food                      Nashik                                    4.1
+          102 Spice Hub                                          Chinese                        Pune                                      4.2
+          104 South Indian Cafe                                  South Indian                   Pune                                      4.3
+          101 Food Corner                                        North Indian                   Pune                                      4.5
+          103 Pizza Palace                                       Italian                        Mumbai                                    4.6
+          106 Biryani Point                                      Biryani                        Nagpur                                    4.7
+
+6 rows selected.
+
+SQL> select*from food_orders;
+
+FOOD_ORDER_ID CUSTOMER_ID RESTAURANT_ID PARTNER_ID ORDER_TIM ORDER_STATUS         TOTAL_AMOUNT
+------------- ----------- ------------- ---------- --------- -------------------- ------------
+         1001           1           101        301 25-AUG-26 Delivered                     340
+         1002           1           103        302 26-AUG-26 Delivered                     399
+         1003           2           102        303 26-AUG-26 Delivered                     380
+         1004           3           104        304 27-AUG-26 Delivered                     230
+         1005           2           106        301 27-AUG-26 Delivered                     330
+         1006           4           105        305 28-AUG-26 Cancelled                     190
+         1007           5           101        306 28-AUG-26 Delivered                     380
+         1008           1           102        301 29-AUG-26 Delivered                     390
+         1009           6           106        302 29-AUG-26 Out for Delivery              500
+         1010           3           103        303 30-AUG-26 Delivered                     598
+         1011           4           101        304 30-AUG-26 Preparing                     380
+         1012           5           104        306 31-AUG-26 Delivered                     230
+         1013           2           105        301 01-SEP-26 Delivered                     340
+         1014           6           102        302 01-SEP-26 Preparing                     390
+         1015           1           106        303 02-SEP-26 Delivered                     550
+
+15 rows selected.
+
+SQL> ----Find the highest order amount
+SQL> select max(total_amount) from food_orders;
+
+MAX(TOTAL_AMOUNT)
+-----------------
+              598
+
+SQL> ---lowest order amount
+SQL> select min(total_amount) from food_orders;
+
+MIN(TOTAL_AMOUNT)
+-----------------
+              190
+
+SQL> ---average order amt
+SQL> select avg(total_amount) from food_orders;
+
+AVG(TOTAL_AMOUNT)
+-----------------
+       375.133333
+
+SQL> select count(*) from food_orders;
+
+  COUNT(*)
+----------
+        15
+
+SQL> ---Count restaurants by city
+SQL> select address,count(*) as cust_count
+  2  from customers group by address;
+
+ADDRESS                                                                                              CUST_COUNT
+----------------------------------------------------------------------------------------------------
+Mumbai                                                                                                        1
+Nagpur                                                                                                        1
+Pune                                                                                                          3
+Nashik                                                                                                        1
+
+SQL> --Find number of orders for each customer
+SQL> select count(*),cust_id
+  2  from food_orders group by cust_id;
+from food_orders group by cust_id
+                          *
+ERROR at line 2:
+ORA-00904: "CUST_ID": invalid identifier
+
+
+SQL>  select count(*),customer_id 
+  2  from food_orders 
+  3  group by customer_id ;
+
+  COUNT(*) CUSTOMER_ID
+---------- -----------
+         4           1
+         2           6
+         3           2
+         2           4
+         2           5
+         2           3
+
+6 rows selected.
+
+SQL> ---Find customers who placed more than 2 orders
+SQL> select count(*),customer_id
+  2  from food_orders
+  3  group by customer_id
+  4  having count(*)>2;
+
+  COUNT(*) CUSTOMER_ID
+---------- -----------
+         4           1
+         3           2
+
+SQL> ---------joins
+SQL> select*from customers;
+
+CUSTOMER_ID CUSTOMER_NAME                                      PHONE           EMAIL                                              ADDRESS
+----------- -------------------------------------------------- --------------- ---------------------
+          1 Sonali Shendge                                     9876543210      sonali@gmail.com                                   Pune
+          2 Rahul Patil                                        9876543211      rahul@gmail.com                                    Mumbai
+          3 Priya Sharma                                       9876543212      priya@gmail.com                                    Pune
+          4 Amit Kulkarni                                      9876543213      amit@gmail.com                                     Nashik
+          5 Sneha Joshi                                        9876543214      sneha@gmail.com                                    Pune
+          6 Rohan Deshmukh                                     9876543215      rohan@gmail.com                                    Nagpur
+
+6 rows selected.
+
+SQL> select*from food_orders;
+
+FOOD_ORDER_ID CUSTOMER_ID RESTAURANT_ID PARTNER_ID ORDER_TIM ORDER_STATUS         TOTAL_AMOUNT
+------------- ----------- ------------- ---------- --------- -------------------- ------------
+         1001           1           101        301 25-AUG-26 Delivered                     340
+         1002           1           103        302 26-AUG-26 Delivered                     399
+         1003           2           102        303 26-AUG-26 Delivered                     380
+         1004           3           104        304 27-AUG-26 Delivered                     230
+         1005           2           106        301 27-AUG-26 Delivered                     330
+         1006           4           105        305 28-AUG-26 Cancelled                     190
+         1007           5           101        306 28-AUG-26 Delivered                     380
+         1008           1           102        301 29-AUG-26 Delivered                     390
+         1009           6           106        302 29-AUG-26 Out for Delivery              500
+         1010           3           103        303 30-AUG-26 Delivered                     598
+         1011           4           101        304 30-AUG-26 Preparing                     380
+         1012           5           104        306 31-AUG-26 Delivered                     230
+         1013           2           105        301 01-SEP-26 Delivered                     340
+         1014           6           102        302 01-SEP-26 Preparing                     390
+         1015           1           106        303 02-SEP-26 Delivered                     550
+
+15 rows selected.
+
+SQL> select c.customer_name,f.food_order_id,f.total_amount,f.order_status
+  2  from customers c inner join food_orders f 
+  3  on c.customer_id=f.customer_id;
+
+CUSTOMER_NAME                                      FOOD_ORDER_ID TOTAL_AMOUNT ORDER_STATUS
+-------------------------------------------------- ------------- ------------ --------------------
+Sonali Shendge                                              1001          340 Delivered
+Sonali Shendge                                              1002          399 Delivered
+Rahul Patil                                                 1003          380 Delivered
+Priya Sharma                                                1004          230 Delivered
+Rahul Patil                                                 1005          330 Delivered
+Amit Kulkarni                                               1006          190 Cancelled
+Sneha Joshi                                                 1007          380 Delivered
+Sonali Shendge                                              1008          390 Delivered
+Rohan Deshmukh                                              1009          500 Out for Delivery
+Priya Sharma                                                1010          598 Delivered
+Amit Kulkarni                                               1011          380 Preparing
+Sneha Joshi                                                 1012          230 Delivered
+Rahul Patil                                                 1013          340 Delivered
+Rohan Deshmukh                                              1014          390 Preparing
+Sonali Shendge                                              1015          550 Delivered
+
+15 rows selected.
+
+SQL> select*from restaurants;
+
+RESTAURANT_ID RESTAURANT_NAME                                    CUISINE                        CITY                           AVERAGE_RATING
+------------- -------------------------------------------------- ------------------------------ ----
+          101 Food Corner                                        North Indian                   Pune                                      4.5
+          102 Spice Hub                                          Chinese                        Pune                                      4.2
+          103 Pizza Palace                                       Italian                        Mumbai                                    4.6
+          104 South Indian Cafe                                  South Indian                   Pune                                      4.3
+          105 Burger House                                       Fast Food                      Nashik                                    4.1
+          106 Biryani Point                                      Biryani                        Nagpur                                    4.7
+
+6 rows selected.
+
+SQL> select*from food_orders;
+
+FOOD_ORDER_ID CUSTOMER_ID RESTAURANT_ID PARTNER_ID ORDER_TIM ORDER_STATUS         TOTAL_AMOUNT
+------------- ----------- ------------- ---------- --------- -------------------- ------------
+         1001           1           101        301 25-AUG-26 Delivered                     340
+         1002           1           103        302 26-AUG-26 Delivered                     399
+         1003           2           102        303 26-AUG-26 Delivered                     380
+         1004           3           104        304 27-AUG-26 Delivered                     230
+         1005           2           106        301 27-AUG-26 Delivered                     330
+         1006           4           105        305 28-AUG-26 Cancelled                     190
+         1007           5           101        306 28-AUG-26 Delivered                     380
+         1008           1           102        301 29-AUG-26 Delivered                     390
+         1009           6           106        302 29-AUG-26 Out for Delivery              500
+         1010           3           103        303 30-AUG-26 Delivered                     598
+         1011           4           101        304 30-AUG-26 Preparing                     380
+         1012           5           104        306 31-AUG-26 Delivered                     230
+         1013           2           105        301 01-SEP-26 Delivered                     340
+         1014           6           102        302 01-SEP-26 Preparing                     390
+         1015           1           106        303 02-SEP-26 Delivered                     550
+
+15 rows selected.
+
+SQL> --Display restaurant name and order details
+SQL> select r.restaurant_name,f.food_order_id,f.order_amount,f.order_status
+  2  from restaurants r inner join food_orders f
+  3  on r.restaurant_id=f.restaurant_id;
+select r.restaurant_name,f.food_order_id,f.order_amount,f.order_status
+                                         *
+ERROR at line 1:
+ORA-00904: "F"."ORDER_AMOUNT": invalid identifier
+
+
+SQL> select r.restaurant_name,f.food_order_id,f.total_amount,f.order_status
+  2  from restaurants r inner join food_orders f
+  3  on r.restaurant_id=f.restaurant_id;
+
+RESTAURANT_NAME                                    FOOD_ORDER_ID TOTAL_AMOUNT ORDER_STATUS
+-------------------------------------------------- ------------- ------------ --------------------
+Food Corner                                                 1001          340 Delivered
+Pizza Palace                                                1002          399 Delivered
+Spice Hub                                                   1003          380 Delivered
+South Indian Cafe                                           1004          230 Delivered
+Biryani Point                                               1005          330 Delivered
+Burger House                                                1006          190 Cancelled
+Food Corner                                                 1007          380 Delivered
+Spice Hub                                                   1008          390 Delivered
+Biryani Point                                               1009          500 Out for Delivery
+Pizza Palace                                                1010          598 Delivered
+Food Corner                                                 1011          380 Preparing
+South Indian Cafe                                           1012          230 Delivered
+Burger House                                                1013          340 Delivered
+Spice Hub                                                   1014          390 Preparing
+Biryani Point                                               1015          550 Delivered
+
+15 rows selected.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

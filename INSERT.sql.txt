@@ -1,0 +1,164 @@
+INSERT INTO Customers VALUES (1, 'Sonali Shendge', '9876543210', 'sonali@gmail.com', 'Pune');
+INSERT INTO Customers VALUES (2, 'Rahul Patil', '9876543211', 'rahul@gmail.com', 'Mumbai');
+INSERT INTO Customers VALUES (3, 'Priya Sharma', '9876543212', 'priya@gmail.com', 'Pune');
+INSERT INTO Customers VALUES (4, 'Amit Kulkarni', '9876543213', 'amit@gmail.com', 'Nashik');
+INSERT INTO Customers VALUES (5, 'Sneha Joshi', '9876543214', 'sneha@gmail.com', 'Pune');
+INSERT INTO Customers VALUES (6, 'Rohan Deshmukh', '9876543215', 'rohan@gmail.com', 'Nagpur');
+
+INSERT INTO Restaurants VALUES (101, 'Food Corner', 'North Indian', 'Pune', 4.5);
+INSERT INTO Restaurants VALUES (102, 'Spice Hub', 'Chinese', 'Pune', 4.2);
+INSERT INTO Restaurants VALUES (103, 'Pizza Palace', 'Italian', 'Mumbai', 4.6);
+INSERT INTO Restaurants VALUES (104, 'South Indian Cafe', 'South Indian', 'Pune', 4.3);
+INSERT INTO Restaurants VALUES (105, 'Burger House', 'Fast Food', 'Nashik', 4.1);
+INSERT INTO Restaurants VALUES (106, 'Biryani Point', 'Biryani', 'Nagpur', 4.7);
+
+INSERT INTO Menu_Items VALUES (201, 101, 'Paneer Tikka', 'Starter', 220, 'Y');
+INSERT INTO Menu_Items VALUES (202, 101, 'Butter Chicken', 'Main Course', 320, 'Y');
+INSERT INTO Menu_Items VALUES (203, 101, 'Garlic Naan', 'Bread', 60, 'Y');
+
+INSERT INTO Menu_Items VALUES (204, 102, 'Veg Manchurian', 'Starter', 180, 'Y');
+INSERT INTO Menu_Items VALUES (205, 102, 'Hakka Noodles', 'Main Course', 200, 'Y');
+INSERT INTO Menu_Items VALUES (206, 102, 'Fried Rice', 'Main Course', 190, 'Y');
+
+INSERT INTO Menu_Items VALUES (207, 103, 'Margherita Pizza', 'Pizza', 299, 'Y');
+INSERT INTO Menu_Items VALUES (208, 103, 'Farmhouse Pizza', 'Pizza', 399, 'Y');
+
+INSERT INTO Menu_Items VALUES (209, 104, 'Masala Dosa', 'South Indian', 130, 'Y');
+INSERT INTO Menu_Items VALUES (210, 104, 'Idli Sambar', 'South Indian', 100, 'Y');
+
+INSERT INTO Menu_Items VALUES (211, 105, 'Veg Burger', 'Burger', 150, 'Y');
+INSERT INTO Menu_Items VALUES (212, 105, 'Cheese Burger', 'Burger', 190, 'Y');
+
+INSERT INTO Menu_Items VALUES (213, 106, 'Chicken Biryani', 'Biryani', 280, 'Y');
+INSERT INTO Menu_Items VALUES (214, 106, 'Veg Biryani', 'Biryani', 220, 'Y');
+INSERT INTO Menu_Items VALUES (215, 106, 'Raita', 'Side Dish', 50, 'Y');
+
+
+INSERT INTO Delivery_Partners VALUES
+(301, 'Akash Jadhav', '9876500011', 'Bike', DATE '2025-01-10', 'Active');
+
+INSERT INTO Delivery_Partners VALUES
+(302, 'Vikas Shinde', '9876500012', 'Bike', DATE '2025-02-15', 'Active');
+
+INSERT INTO Delivery_Partners VALUES
+(303, 'Karan Chavan', '9876500013', 'Scooter', DATE '2025-03-20', 'Active');
+
+INSERT INTO Delivery_Partners VALUES
+(304, 'Sagar More', '9876500014', 'Bike', DATE '2025-04-05', 'Active');
+
+INSERT INTO Delivery_Partners VALUES
+(305, 'Nikhil Pawar', '9876500015', 'Scooter', DATE '2025-05-12', 'Inactive');
+
+INSERT INTO Delivery_Partners VALUES
+(306, 'Pratik Kale', '9876500016', 'Bike', DATE '2025-06-18', 'Active');
+
+
+INSERT INTO Food_Orders VALUES
+(1001, 1, 101, 301, DATE '2026-08-25', 'Delivered', 340);
+
+INSERT INTO Food_Orders VALUES
+(1002, 1, 103, 302, DATE '2026-08-26', 'Delivered', 399);
+
+INSERT INTO Food_Orders VALUES
+(1003, 2, 102, 303, DATE '2026-08-26', 'Delivered', 380);
+
+INSERT INTO Food_Orders VALUES
+(1004, 3, 104, 304, DATE '2026-08-27', 'Delivered', 230);
+
+INSERT INTO Food_Orders VALUES
+(1005, 2, 106, 301, DATE '2026-08-27', 'Delivered', 330);
+
+INSERT INTO Food_Orders VALUES
+(1006, 4, 105, 305, DATE '2026-08-28', 'Cancelled', 190);
+
+INSERT INTO Food_Orders VALUES
+(1007, 5, 101, 306, DATE '2026-08-28', 'Delivered', 380);
+
+INSERT INTO Food_Orders VALUES
+(1008, 1, 102, 301, DATE '2026-08-29', 'Delivered', 390);
+
+INSERT INTO Food_Orders VALUES
+(1009, 6, 106, 302, DATE '2026-08-29', 'Out for Delivery', 500);
+
+INSERT INTO Food_Orders VALUES
+(1010, 3, 103, 303, DATE '2026-08-30', 'Delivered', 598);
+
+INSERT INTO Food_Orders VALUES
+(1011, 4, 101, 304, DATE '2026-08-30', 'Preparing', 380);
+
+INSERT INTO Food_Orders VALUES
+(1012, 5, 104, 306, DATE '2026-08-31', 'Delivered', 230);
+
+INSERT INTO Food_Orders VALUES
+(1013, 2, 105, 301, DATE '2026-09-01', 'Delivered', 340);
+
+INSERT INTO Food_Orders VALUES
+(1014, 6, 102, 302, DATE '2026-09-01', 'Preparing', 390);
+
+INSERT INTO Food_Orders VALUES
+(1015, 1, 106, 303, DATE '2026-09-02', 'Delivered', 550);
+
+
+INSERT INTO Food_Orders VALUES
+(1001, 1, 101, 301, DATE '2026-08-25', 'Delivered', 340);
+
+INSERT INTO Food_Orders VALUES
+(1002, 1, 103, 302, DATE '2026-08-26', 'Delivered', 399);
+
+INSERT INTO Food_Orders VALUES
+(1003, 2, 102, 303, DATE '2026-08-26', 'Delivered', 380);
+
+INSERT INTO Food_Orders VALUES
+(1004, 3, 104, 304, DATE '2026-08-27', 'Delivered', 230);
+
+INSERT INTO Food_Orders VALUES
+(1005, 2, 106, 301, DATE '2026-08-27', 'Delivered', 330);
+
+INSERT INTO Food_Orders VALUES
+(1006, 4, 105, 305, DATE '2026-08-28', 'Cancelled', 190);
+
+INSERT INTO Food_Orders VALUES
+(1007, 5, 101, 306, DATE '2026-08-28', 'Delivered', 380);
+
+INSERT INTO Food_Orders VALUES
+(1008, 1, 102, 301, DATE '2026-08-29', 'Delivered', 390);
+
+INSERT INTO Food_Orders VALUES
+(1009, 6, 106, 302, DATE '2026-08-29', 'Out for Delivery', 500);
+
+INSERT INTO Food_Orders VALUES
+(1010, 3, 103, 303, DATE '2026-08-30', 'Delivered', 598);
+
+INSERT INTO Food_Orders VALUES
+(1011, 4, 101, 304, DATE '2026-08-30', 'Preparing', 380);
+
+INSERT INTO Food_Orders VALUES
+(1012, 5, 104, 306, DATE '2026-08-31', 'Delivered', 230);
+
+INSERT INTO Food_Orders VALUES
+(1013, 2, 105, 301, DATE '2026-09-01', 'Delivered', 340);
+
+INSERT INTO Food_Orders VALUES
+(1014, 6, 102, 302, DATE '2026-09-01', 'Preparing', 390);
+
+INSERT INTO Food_Orders VALUES
+(1015, 1, 106, 303, DATE '2026-09-02', 'Delivered', 550);
+
+
+INSERT INTO Food_Order_Items VALUES (1, 1001, 201, 1, 220);
+INSERT INTO Food_Order_Items VALUES (2, 1001, 203, 2, 60);
+INSERT INTO Food_Order_Items VALUES (3, 1002, 208, 1, 399);
+INSERT INTO Food_Order_Items VALUES (4, 1003, 204, 1, 180);
+INSERT INTO Food_Order_Items VALUES (5, 1003, 205, 1, 200);
+INSERT INTO Food_Order_Items VALUES (6, 1004, 209, 1, 130);
+INSERT INTO Food_Order_Items VALUES (7, 1004, 210, 1, 100);
+INSERT INTO Food_Order_Items VALUES (8, 1005, 213, 1, 280);
+INSERT INTO Food_Order_Items VALUES (9, 1005, 215, 1, 50);
+INSERT INTO Food_Order_Items VALUES (10, 1006, 212, 1, 190);
+INSERT INTO Food_Order_Items VALUES (11, 1007, 202, 1, 320);
+INSERT INTO Food_Order_Items VALUES (12, 1007, 201, 1, 220);
+INSERT INTO Food_Order_Items VALUES (13, 1008, 206, 1, 190);
+INSERT INTO Food_Order_Items VALUES (14, 1009, 213, 1, 280);
+INSERT INTO Food_Order_Items VALUES (15, 1010, 207, 2, 299);
+
+COMMIT;
